@@ -4,7 +4,7 @@
 
 ## Descripción
 
-<p>Diseñé y desarrollé mi Portfolio Personal</p> 
+<p>Diseñé y desarrollé mi Portfolio Personal.</p> 
 <p>Se adapta perfectamente a desktop, tablet y mobile.</p> 
 
 ## Creado con
