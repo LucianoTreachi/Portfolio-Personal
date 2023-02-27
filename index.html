@@ -96,12 +96,26 @@
           <a href="#question" class="nav-link">Faqs</a>
           <a href="#blogs" class="nav-link">Blogs</a>
           <a href="#contact" class="nav-link">Contacto</a>
+          <button class="cv" id="cv">CV</button>
         </div>
 
         <i class="ri-menu-line open-menu"></i>
       </nav>
     </div>
   </header>
+
+  <!--====== MODAL SUCCESS ======-->
+  <div class="modal" id="modal-cv">
+    <div class="box">
+      <p>¿Quieres descargar mi CV?</p>
+      <div class="buttonsCV">
+        <button class="close-modal-cv" id="close-modal-cv">Ahora no</button>
+        <a href="./descarga/Curriculum.jpg" download class="descargar-cv" id="descargar-cv">
+          Descargar
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!--===============================
   MAIN 
@@ -505,7 +519,7 @@
         </div>
         <h2>¡Mensaje enviado!</h2>
         <p>Te responderé a la brevedad</p>
-        <button id="close-modal-success">Genial</button>
+        <button class="close-modal-success" id="close-modal-success">Genial</button>
       </div>
     </div>
 

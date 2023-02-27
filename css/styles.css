@@ -200,6 +200,53 @@ nav {
   color: var(--main-color);
 }
 
+.cv {
+  margin-left: 3rem; 
+  font-size: 1.7rem;
+  font-weight: 500; 
+  color: var(--white2);
+  background: none;
+  padding: .5rem 2rem;
+  border: 2px solid var(--white2);
+  border-radius: 5px;
+  cursor: pointer;
+  width: max-content;
+  transition: .3s;
+}
+
+.cv:hover{
+  color: var(--main-color);
+  border: 2px solid var(--main-color);
+} 
+
+.buttonsCV {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.modal .box .close-modal-cv {
+  background: none;
+  font-size: 1.6rem;
+  color: var(--white2);
+  border: 0;
+  border-radius: 5px;
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.modal .box .descargar-cv {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--black1);
+  background-color: var(--white2);
+  border: 2px solid var(--white2);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
 .heading-navbar {
   display: none;
 }
@@ -640,7 +687,7 @@ MODALS
   top: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, .8);
   display: none;
 }
 
@@ -662,7 +709,7 @@ MODALS
   overflow-y: auto;
   background: var(--black1);
   box-shadow: -1px -1px 15px -5px rgba(0, 0, 0, 1);
-  border: 2px solid var(--color1);
+  border: 2px solid var(--main-color);
   border-radius: 1rem;
   padding: 4rem;
   animation: zoomIn 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
@@ -672,7 +719,7 @@ MODALS
   width: 80px;
 }
 
-.img-ok {
+.svg {
   animation: scale 1s ease-in-out forwards;
 }
 
@@ -691,7 +738,7 @@ MODALS
   line-height: 1.5;
 }
 
-.modal .box button {
+.modal .box .close-modal-success {
   font-size: 1.6rem;
   font-weight: 600;
   padding: .5rem 1.5rem;
@@ -700,7 +747,7 @@ MODALS
   color: var(--black1);
   background: #ddd;
   cursor: pointer;
-  margin-top: 4rem;
+  margin-top: 3rem;
 }
 
 /*=============================== 
@@ -775,7 +822,7 @@ PAGE
 RESPONSIVE
 ================================*/
 
-@media screen and (max-width: 920px) {
+@media screen and (max-width: 925px) {
 
   .open-menu {
     display: inline-block;
@@ -805,16 +852,6 @@ RESPONSIVE
     animation: fadeIn .1s ease-in-out both;
   }
 
-  .nav-link {
-    margin-left: 3rem;
-    width: max-content;
-    color: var(--white1);
-    font-size: 1.7rem;
-    padding: 2rem;
-    border-left: 2px solid var(--main-color);
-    opacity: .9;
-  }
-
   .heading-navbar {
     display: flex;
     align-items: center;
@@ -839,6 +876,20 @@ RESPONSIVE
     font-size: 3rem;
     color: var(--white1);
     cursor: pointer;
+  }
+
+  .nav-link {
+    margin-left: 3rem;
+    width: max-content;
+    color: var(--white1);
+    font-size: 1.7rem;
+    padding: 1.5rem;
+    border-left: 2px solid var(--main-color);
+    opacity: .9;
+  }
+
+  .cv {
+    margin-top: 1rem;
   }
 
   .home .container {
@@ -882,19 +933,6 @@ RESPONSIVE
     width: 100%;
   }
 
-  .home .container {
-    display: block;
-  }
-
-  .home .container .col-1 a {
-    text-align: center;
-    width: 100%;
-  }
-
-  .home .container .col-2 {
-    margin-top: 4rem;
-  }
-
   .about-row {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -920,9 +958,30 @@ RESPONSIVE
   }
 }
 
+@media screen and (max-width: 500px) {
+
+  .home .container {
+    display: block;
+  }
+
+  .home .container .col-1 a {
+    text-align: center;
+    width: 100%;
+  }
+
+  .home .container .col-2 {
+    margin-top: 4rem;
+  }
+}
+
 @media screen and (max-width: 320px) {
 
   html {
     font-size: 55%;
+  }
+
+  .buttonsCV {
+    flex-direction: column;
+    gap: 2rem;
   }
 }

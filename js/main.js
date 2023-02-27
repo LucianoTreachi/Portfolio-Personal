@@ -18,6 +18,24 @@ navLinks.forEach((e) => {
   })
 });
 
+////////// CV //////////
+const cv = document.getElementById("cv");
+const modalCV = document.getElementById("modal-cv");
+const closeModalCV = document.getElementById("close-modal-cv");
+const descargarCV = document.getElementById("modal-cv");
+
+cv.addEventListener("click", () => {
+  modalCV.classList.add("active");
+})
+
+closeModalCV.addEventListener("click", () => {
+  modalCV.classList.remove("active");
+})
+
+descargarCV.addEventListener("click", () => {
+  modalCV.classList.remove("active");
+  navbar.classList.remove("active");
+})
 
 ////////// ACTIVE LINK WITH SCROLL //////////
 const navlinks = document.querySelectorAll('.nav-link')
@@ -33,14 +51,12 @@ function activeLinks() {
 activeLinks();
 window.addEventListener("scroll", activeLinks);
 
-
 ////////// SCROLL TO TOP //////////
 const scrollTopBtn = document.querySelector(".scrollToTop-Btn");
   
 window.addEventListener("scroll", function () {
   scrollTopBtn.classList.toggle("active", window.scrollY > 500);
 });
-
 
 ////////// CONTACT //////////
 const contactSection = document.getElementById("contact")
