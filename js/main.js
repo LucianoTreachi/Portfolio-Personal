@@ -168,7 +168,7 @@ form.addEventListener("submit", async (e) => {
     modalContact.classList.add("active");
 
     try {
-      const respuestaServidor = await fetch("https://sheet.best/api/sheets/72bb0c91-a207-4da1-ba1b-931a0c42e5a", {
+      const respuestaServidor = await fetch("https://sheet.best/api/sheets/72bb0c91-a207-4da1-ba1b-931a0c42e5a4", {
         method: "POST",
         mode: "cors",
         headers: {
