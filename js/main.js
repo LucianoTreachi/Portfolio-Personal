@@ -53,13 +53,13 @@ window.addEventListener("scroll", activeLinks);
 
 ////////// SCROLL TO TOP //////////
 const scrollTopBtn = document.querySelector(".scrollToTop-Btn");
-  
+
 window.addEventListener("scroll", function () {
   scrollTopBtn.classList.toggle("active", window.scrollY > 500);
 });
 
 ////////// CONTACT //////////
-const contactSection = document.getElementById("contact")
+const contactSection = document.getElementById("contact");
 const form = document.getElementById("form");
 const inputs = document.querySelectorAll("#form input");
 
@@ -71,11 +71,14 @@ const alertName = document.getElementById("alert-name");
 const alertEmail = document.getElementById("alert-email");
 const alertMessage = document.getElementById("alert-message");
 
-const modalSuccess = document.getElementById("modal-success");
-const closeModalSuccess = document.getElementById("close-modal-success");
+const modalContact = document.getElementById("modal-contact");
+const modalContactLoader = document.getElementById("modal-contact-loader");
+const modalContactSuccess = document.getElementById("modal-contact-success");
+const modalContactError = document.getElementById("modal-contact-error");
+const closeModalContact = document.querySelectorAll(".close-modal-contact");
 
 /* Regular Expressions */
-const expName = /^[\S][\DÀ-ÿ\s]{1,30}$/ 
+const expName = /^[\S][\DÀ-ÿ\s]{1,30}$/
 const expEmail = /^[-\w.%+]{1,64}@(?:[A-Z0-9]{4,63}\.){1,125}[A-Z]{2,4}$/i
 const expMessage = /^[\S][0-9a-zA-ZÀ-ÿ\s\,.¡!¿?]{3,1000}$/
 
@@ -87,7 +90,7 @@ const campos = {
 
 /* Validate Regular Expressions */
 function validateRegularExpressions(e) {
-  switch (e.target.id) { 
+  switch (e.target.id) {
 
     case "input-name":
       if (expName.test(e.target.value)) {
@@ -142,7 +145,7 @@ textarea.addEventListener('keyup', validateRegularExpressions);
 textarea.addEventListener('blur', validateRegularExpressions);
 
 /* Submit */
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   if (!campos.nombre) {
@@ -161,13 +164,46 @@ form.addEventListener("submit", (e) => {
   }
 
   if (campos.nombre && campos.correo && campos.mensaje) {
-    modalSuccess.classList.add("active");
-    form.reset();
+    
+    modalContact.classList.add("active");
+
+    try {
+      const respuestaServidor = await fetch("https://sheet.best/api/sheets/72bb0c91-a207-4da1-ba1b-931a0c42e5a", {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          "Name": form.name.value,
+          "Email": form.email.value,
+          "Textarea": form.textarea.value
+        })
+      });
+      const datos = await respuestaServidor.json();
+      console.log(datos);
+
+      setTimeout(() => {
+        modalContactLoader.style.display = "none";
+        modalContactSuccess.style.display = "block";
+        form.reset();
+      }, 3000);
+    }
+
+    catch (error) {
+      setTimeout(() => {
+        modalContactLoader.style.display = "none";
+        modalContactError.style.display = "block";
+        form.reset();
+      }, 3000);
+    }
   }
 });
 
-////////// CLOSE MODAL SUCCESS //////////
-closeModalSuccess.addEventListener("click", () => {
-  modalSuccess.classList.remove("active");
-  location.href = "index.html"
+////////// CLOSE MODAL CONTACT //////////
+closeModalContact.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btn.classList.remove("active");
+    location.href = "index.html"
+  })
 });

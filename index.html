@@ -68,7 +68,7 @@
     <div class="container">
       <nav>
         <a href="./index.html">
-          <h2 class="logo">Luciano Treachi</h2>
+          <h2 class="nav-logo">Luciano Treachi</h2>
         </a>
 
         <div class="navbar">
@@ -104,9 +104,9 @@
     </div>
   </header>
 
-  <!--====== MODAL SUCCESS ======-->
+  <!--====== MODAL CV ======-->
   <div class="modal" id="modal-cv">
-    <div class="box">
+    <div class="box-cv">
       <p>¿Quieres descargar mi CV?</p>
       <div class="buttonsCV">
         <button class="close-modal-cv" id="close-modal-cv">Ahora no</button>
@@ -494,7 +494,7 @@
                 <p class="alert" id="alert-email">Completa este campo</p>
               </div>
               <div class="input-container">
-                <textarea name="message" id="textarea" placeholder="Mensaje"></textarea>
+                <textarea name="textarea" id="textarea" placeholder="Mensaje"></textarea>
                 <p class="alert" id="alert-message">Completa este campo</p>
               </div>
               <button type="submit" class="button-submit">Enviar</button>
@@ -511,15 +511,34 @@
 
     </section>
 
-    <!--====== MODAL SUCCESS ======-->
-    <div class="modal" id="modal-success">
+    <!--====== MODAL CONTACT ======-->
+    <div class="modal" id="modal-contact">
       <div class="box">
-        <div>
-          <img src="./assets/svg/ok.svg" alt="Ok" class="img-ok">
+        <div class="loader" id="modal-contact-loader">
+          <div class="dot-spinner">
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+            <div class="dot-spinner__dot"></div>
+          </div>
+          <h2>Enviando el mensaje...</h2>
         </div>
-        <h2>¡Mensaje enviado!</h2>
-        <p>Te responderé a la brevedad</p>
-        <button class="close-modal-success" id="close-modal-success">Genial</button>
+        <div class="content" id="modal-contact-success">
+          <div>
+            <img src="./assets/svg/ok.svg" alt="Ok" class="img-ok">
+          </div>
+          <h2>¡Mensaje enviado!</h2>
+          <p>Te responderé a la brevedad</p>
+          <button class="close-modal-contact">Genial</button>
+        </div>
+        <div class="error" id="modal-contact-error">
+          <p>Disculpa, no se pudo enviar el mensaje. Intentalo más tarde</p>
+          <button class="close-modal-contact">Ok</button>
+        </div>
       </div>
     </div>
 
