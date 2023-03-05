@@ -972,8 +972,7 @@ RESPONSIVE
 
   .open-menu {
     display: inline-block;
-    color: var(--white1);
-    font-size: 3rem;
+    width: 30px;
     cursor: pointer;
   }
 
