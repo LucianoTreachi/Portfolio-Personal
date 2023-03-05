@@ -22,7 +22,7 @@ navLinks.forEach((e) => {
 const cv = document.getElementById("cv");
 const modalCV = document.getElementById("modal-cv");
 const closeModalCV = document.getElementById("close-modal-cv");
-const descargarCV = document.getElementById("modal-cv");
+const descargarCV = document.getElementById("descargar-cv");
 
 cv.addEventListener("click", () => {
   modalCV.classList.add("active");
