@@ -145,7 +145,7 @@ textarea.addEventListener('keyup', validateRegularExpressions);
 textarea.addEventListener('blur', validateRegularExpressions);
 
 /* Submit */
-form.addEventListener("submit", async (e) => {
+form.addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (!campos.nombre) {
@@ -167,36 +167,22 @@ form.addEventListener("submit", async (e) => {
     
     modalContact.classList.add("active");
 
-    try {
-      const respuestaServidor = await fetch("https://sheet.best/api/sheets/72bb0c91-a207-4da1-ba1b-931a0c42e5a4", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          "Name": form.name.value,
-          "Email": form.email.value,
-          "Textarea": form.textarea.value
-        })
-      });
-      const datos = await respuestaServidor.json();
-      console.log(datos);
-
+    emailjs.sendForm('service_c3wl15o', 'template_jgw4yri', '#form', 'hUS51mu8VJq2dQccV').then(() => {
       setTimeout(() => {
         modalContactLoader.style.display = "none";
         modalContactSuccess.style.display = "block";
         form.reset();
       }, 3000);
-    }
-
-    catch (error) {
+    }, 
+    
+    (error) => {
       setTimeout(() => {
         modalContactLoader.style.display = "none";
         modalContactError.style.display = "block";
         form.reset();
       }, 3000);
-    }
+      console.log(error);
+    })
   }
 });
 
