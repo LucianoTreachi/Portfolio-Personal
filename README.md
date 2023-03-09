@@ -5,17 +5,15 @@
 ## Descripción
 
 <p>Diseñé y desarrollé mi Portfolio Personal.</p> 
-<p>Se adapta perfectamente a desktop, tablet y mobile.</p> 
+<p>Se adapta perfectamente a cualquier dispositivo: escritorio, tablet y móvil, lo que permite disfrutar de una experiencia de usuario fluida y cómoda en cualquier momento y en cualquier lugar.</p> 
 
-## Creado con
+## Desarrollado con
 
 - HTML5
 - CSS3
 - Javascript
-
-## Librerías JS utilizadas
-
-- [WOW js](https://wowjs.uk/)
+- WOW Js
+- Email Js
 
 ## Autor
 **Luciano Treachi**
