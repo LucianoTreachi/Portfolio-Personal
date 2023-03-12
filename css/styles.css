@@ -1112,7 +1112,7 @@ RESPONSIVE
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 350px) {
 
   html {
     font-size: 55%;
